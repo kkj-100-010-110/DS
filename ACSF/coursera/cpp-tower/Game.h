@@ -20,4 +20,9 @@ class Game {
 
   private:
     std::vector<Stack> stacks_;
+
+    // solution 1
+    void pattern(uint8_t idx1, uint8_t idx2);
+    // solution 2
+    void move(uint16_t begin, uint16_t end, Stack& source, Stack& spare, Stack& target);
 };

@@ -14,6 +14,12 @@ namespace uiuc {
 
   // Put your HSLAPixel class definition here.
   // (Remember to end it with a semicolon!)
-
-
+  class HSLAPixel
+  {
+  public:
+    double h; // hue, degree on a color wheel between 0 and 360
+    double s; // saturation
+    double l; // luminance
+    double a; // alpha
+  };
 }
