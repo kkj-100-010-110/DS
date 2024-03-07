@@ -4,6 +4,7 @@
 #include <iostream>
 #include <sstream>
 #include <stdexcept>
+#include <type_traits>
 
 namespace MY
 {
@@ -158,5 +159,14 @@ namespace MY
         size_t capacity() const { return capacity_; }
     };
 }
+
+// generic usage for creating std::array
+template<typename ... Args>
+auto build_array(Args&&... args) -> std::array<typename std::common_type<Args...>::type, sizeof...(args)>
+{
+    using commonType = typename std::common_type<Args...>::type;
+    return {std::forward<commonType>((Args&&)args)...};
+}
+
 
 #endif//_ARRAY_H_

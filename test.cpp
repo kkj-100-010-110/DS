@@ -1,50 +1,55 @@
-#include "array.h"
-#include <iostream>
-#include <sstream>
-#include <algorithm>
-
-struct student
-{
-    std::string name;
-    int standard;
-};
-
-std::ostream& operator<<(std::ostream& os, const student& s)
-{
-    return (os << "[" << s.name << ", " << s.standard << "]");
-}
+#include "dictionary.hpp"
+#include "dictionary.h"
+#include "binary_search_tree.h"
 
 int main()
 {
-    int nStudents;
-    std::cout << "1반 학생 수를 입력하세요: ";
-    std::cin >> nStudents;
+    // Dictionary<int, int> t;
+    // t.insert(10,10);
+    // t.insert(5,5);
+    // t.insert(15,15);
+    // t.insert(2,2);
+    // t.insert(4,4);
+    // t.insert(3,3);
+    // t.insert(6,6);
+    // t.insert(8,8);
+    // t.insert(7,7);
+    // // t.insert(6,6);
+    // t.insert(9,9);
+    // t.insert(13,13);
+    // t.insert(14,14);
+    // t.insert(18,18);
+    // t.insert(16,16);
+    // t.insert(17,17);
+    // t.insert(19,19);
+    // t.insert(20,20);
+    // t.print();
+    // t.remove(5);
+    // t.remove(17);
+    // t.remove(18);
+    // t.remove(8);
+    // t.remove(10);
+    // t.print();
+    // std::cout << std::endl;
 
-    my::dynamic_array<student> class1(nStudents);
-    for (int i = 0; i < nStudents; i++)
-    {
-        std::string name;
-        int standard;
-        std::cout << i + 1 << " 번째 학생 이름과 나이를 입력하세요: ";
-        std::cin >> name >> standard;
-        class1[i] = student{name, standard};
-    }
+    Dictionary<int, int> t1;
 
-    try
-    {
-        // class1.at(nStudents) = student{"John", 8};
-    }
-    catch(const std::exception& e)
-    {
-        // std::cerr << e.what() << '\n';
-        std::cout << "예외 발생!" << std::endl;
-    }
-
-    auto class2 = class1;
-    std::cout << "1반을 복사하여 2반 생성: " << class2.to_string() << std::endl;
-
-    auto class3 = class1 + class2;
-    std::cout << "1반과 2반 합쳐 3반 생성: " << class3.to_string() << std::endl;
+    // t1.insert(10,10);
+    // t1.insert(8, 8);
+    // t1.insert(9, 9);
+    // t1.insert(6, 6);
+    // t1.insert(7, 7);
+    // t1.insert(4, 4);
+    // t1.insert(5, 5);
+    // t1.insert(3, 3);
+    t1.insert(8, 8);
+    t1.insert(9, 9);
+    t1.insert(7, 7);
+    t1.insert(6, 6);
+    t1.print();
+    std::cout << std::endl;
+    t1.remove(8);
+    t1.print();
 
     return 0;
 }
