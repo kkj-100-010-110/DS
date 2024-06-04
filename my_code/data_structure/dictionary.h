@@ -10,6 +10,9 @@ class Dictionary
 {
 public:
     Dictionary();
+    ~Dictionary();
+    void clear_tree();
+    bool empty() const;
     const D& find(const K& key);
     void insert(const K& key, const D& data);
     const D& remove(const K& key);

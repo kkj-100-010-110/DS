@@ -1,3 +1,7 @@
+// #pragma once
+#ifndef _DICTIONARY_HPP_
+#define _DICTIONARY_HPP_
+
 #include "dictionary.h"
 
 /** constructor of Dictionary class */
@@ -11,6 +15,19 @@ template <typename K, typename D>
 Dictionary<K, D>::TreeNode::TreeNode(const K& key, const D& data)
     : key(key), data(data), left(nullptr), right(nullptr)
 {}
+
+template <typename K, typename D>
+Dictionary<K, D>::~Dictionary() { clear_tree(); }
+
+template <typename K, typename D>
+void Dictionary<K, D>::clear_tree()
+{
+    while (_root)
+        remove(_root->key);
+}
+
+template <typename K, typename D>
+bool Dictionary<K, D>::empty() const { return !root_; }
 
 /** the right-most data of the tree */
 template <typename K, typename D>
@@ -188,3 +205,5 @@ void Dictionary<K, D>::print()
         std::cout << std::endl;
     }
 }
+
+#endif//_DICTIONARY_HPP_
